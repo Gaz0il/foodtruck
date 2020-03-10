@@ -2,9 +2,8 @@ package com.example.demo.model;
 
 import java.util.Collection;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import com.example.demo.model.Repas;
 
 @Entity
 public class FamilleRepas {
@@ -15,6 +14,12 @@ public class FamilleRepas {
 	
 	@OneToMany (mappedBy="idFamilleRepas")
 	private Collection<Produit> produit;
+	
+	@ManyToMany
+	@JoinTable( name="Repas_FamilleRepas",
+	joinColumns=@JoinColumn(name="famille_id"),
+	inverseJoinColumns=@JoinColumn(name="repas_id") )
+	private Collection<Repas> repas;
 	
 	private String libelle;
 	private boolean actif;

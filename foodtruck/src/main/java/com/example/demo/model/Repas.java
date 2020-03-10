@@ -1,12 +1,18 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.Collection;
+import com.example.demo.model.FamilleRepas;
+import javax.persistence.*;
 
 @Entity
 public class Repas {
+	
 	@Id
 	private int idRepas;
+	
+	@ManyToMany(mappedBy="repas")
+	private Collection<FamilleRepas> familleRepas;
+	
 	private String libelle;
 	private boolean isActive;
 
