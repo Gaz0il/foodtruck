@@ -1,7 +1,12 @@
 package com.example.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Adresse {
@@ -11,11 +16,20 @@ public class Adresse {
 	private String rue;
 	private int codePostal;
 	private String pays;
-	// private Utilisateur idUser;
+	@OneToMany(mappedBy = "idAdresse")
+	private Collection<Utilisateur> listeUtilisateur;
 	private boolean isActive;
 
 	public Adresse() {
 		super();
+	}
+
+	public Collection<Utilisateur> getListeUtilisateur() {
+		return listeUtilisateur;
+	}
+
+	public void setListeUtilisateur(Collection<Utilisateur> listeUtilisateur) {
+		this.listeUtilisateur = listeUtilisateur;
 	}
 
 	public int getId() {

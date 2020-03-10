@@ -1,7 +1,10 @@
 package com.example.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Genre {
@@ -9,8 +12,19 @@ public class Genre {
 	private int id;
 	private String libelle;
 
+	@OneToMany(mappedBy = "idGenre")
+	private Collection<Utilisateur> listeUtilisateur;
+
 	public Genre() {
 		super();
+	}
+
+	public Collection<Utilisateur> getListeUtilisateur() {
+		return listeUtilisateur;
+	}
+
+	public void setListeUtilisateur(Collection<Utilisateur> listeUtilisateur) {
+		this.listeUtilisateur = listeUtilisateur;
 	}
 
 	public int getId() {

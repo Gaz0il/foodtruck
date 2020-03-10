@@ -4,6 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Utilisateur {
@@ -12,9 +16,15 @@ public class Utilisateur {
 	private String nom, prenom;
 	private Date dateNaissance;
 	private String motDePasse;
+	@ManyToOne
+	@JoinColumn(name = "id_Genre")
 	private Genre idGenre;
 	private String email, societe;
+	@ManyToMany
+	@JoinTable(name = "Utilisateur_Adresse", joinColumns = @JoinColumn(name = "id_Utilisateur"), inverseJoinColumns = @JoinColumn(name = "id_Adresse"))
 	private Adresse idAdresse;
+	@ManyToOne
+	@JoinColumn(name = "id_Profil")
 	private Profil idProfil;
 
 	public Utilisateur() {
