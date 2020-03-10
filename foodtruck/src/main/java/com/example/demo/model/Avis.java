@@ -15,6 +15,9 @@ public class Avis {
 	private double prixUser;
 	private String commentaire;
 	private int note;
+	@ManyToOne
+	@JoinColumn(name="id_Utilisateur")
+	private Utilisateur utilisateur;
 
 	public Avis() {
 		super();

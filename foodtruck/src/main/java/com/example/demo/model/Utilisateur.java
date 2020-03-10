@@ -28,7 +28,9 @@ public class Utilisateur {
 	private Profil idProfil;
 	@OneToMany(mappedBy = "idUtilisateur")
 	private Collection<EnteteCommande> listeEnteteCommande;
-
+	@OneToMany(mappedBy = "utilisateur")
+	private Collection<Avis> avis;
+	
 	public Utilisateur() {
 		super();
 	}
