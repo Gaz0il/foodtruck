@@ -1,13 +1,13 @@
 package com.example.demo.model;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Utilisateur {
@@ -20,12 +20,14 @@ public class Utilisateur {
 	@JoinColumn(name = "id_Genre")
 	private Genre idGenre;
 	private String email, societe;
-	@ManyToMany
-	@JoinTable(name = "Utilisateur_Adresse", joinColumns = @JoinColumn(name = "id_Utilisateur"), inverseJoinColumns = @JoinColumn(name = "id_Adresse"))
+	@ManyToOne
+	@JoinColumn(name = "id_Adresse")
 	private Adresse idAdresse;
 	@ManyToOne
 	@JoinColumn(name = "id_Profil")
 	private Profil idProfil;
+	@OneToMany(mappedBy = "idUtilisateur")
+	private Collection<EnteteCommande> listeEnteteCommande;
 
 	public Utilisateur() {
 		super();
@@ -109,6 +111,14 @@ public class Utilisateur {
 
 	public void setIdProfil(Profil idProfil) {
 		this.idProfil = idProfil;
+	}
+
+	public Collection<EnteteCommande> getListeEnteteCommande() {
+		return listeEnteteCommande;
+	}
+
+	public void setListeEnteteCommande(Collection<EnteteCommande> listeEnteteCommande) {
+		this.listeEnteteCommande = listeEnteteCommande;
 	}
 
 }

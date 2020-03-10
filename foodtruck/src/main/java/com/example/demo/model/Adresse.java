@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,6 +20,10 @@ public class Adresse {
 	@OneToMany(mappedBy = "idAdresse")
 	private Collection<Utilisateur> listeUtilisateur;
 	private boolean isActive;
+	@OneToMany(mappedBy = "idAdresseLivraison")
+	private Collection<EnteteCommande> listeTeteCommandeLivraison;
+	@OneToMany(mappedBy = "idAdresseFacturation")
+	private Collection<EnteteCommande> listeTeteCommandeFacturation;
 
 	public Adresse() {
 		super();
@@ -78,6 +83,22 @@ public class Adresse {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public Collection<EnteteCommande> getListeTeteCommandeLivraison() {
+		return listeTeteCommandeLivraison;
+	}
+
+	public void setListeTeteCommandeLivraison(Collection<EnteteCommande> listeTeteCommandeLivraison) {
+		this.listeTeteCommandeLivraison = listeTeteCommandeLivraison;
+	}
+
+	public Collection<EnteteCommande> getListeTeteCommandeFacturation() {
+		return listeTeteCommandeFacturation;
+	}
+
+	public void setListeTeteCommandeFacturation(Collection<EnteteCommande> listeTeteCommandeFacturation) {
+		this.listeTeteCommandeFacturation = listeTeteCommandeFacturation;
 	}
 
 }

@@ -1,21 +1,33 @@
 package com.example.demo.model;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class EnteteCommande {
 	@Id
 	private int idCommande;
+	@ManyToOne
+	@JoinColumn(name = "id_Utilisateur")
 	private Utilisateur idUtilisateur;
 	private Date dateCommande;
 	private int totalCommande;
-	private Adresse idAdresseLivraison, idAdresseFacturation;
+	@ManyToOne
+	@JoinColumn(name = "id_AdresseLivraison")
+	private Adresse idAdresseLivraison;
+	@ManyToOne
+	@JoinColumn(name = "id_AdresseFacturation")
+	private Adresse idAdresseFacturation;
 	private int numFacturation;
 	private boolean isDelivrer;
-	private Repas idRepas;
+	@OneToMany(mappedBy = "idEnteteCommande")
+	private Collection<Repas> listeRepas;
 
 	public EnteteCommande() {
 		super();
@@ -85,12 +97,12 @@ public class EnteteCommande {
 		this.isDelivrer = isDelivrer;
 	}
 
-	public Repas getIdRepas() {
-		return idRepas;
+	public Collection<Repas> getListeRepas() {
+		return listeRepas;
 	}
 
-	public void setIdRepas(Repas idRepas) {
-		this.idRepas = idRepas;
+	public void setListeRepas(Collection<Repas> listeRepas) {
+		this.listeRepas = listeRepas;
 	}
 
 }

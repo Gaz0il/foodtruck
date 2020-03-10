@@ -4,6 +4,8 @@ import java.util.Collection;
 import com.example.demo.model.FamilleRepas;
 import javax.persistence.*;
 
+
+
 @Entity
 public class Repas {
 	
@@ -15,7 +17,9 @@ public class Repas {
 	
 	private String libelle;
 	private boolean isActive;
-
+	@ManyToOne
+	@JoinColumn(name = "id_EnteteCommande")
+	private EnteteCommande idEnteteCommande;
 	public Repas() {
 		super();
 	}
