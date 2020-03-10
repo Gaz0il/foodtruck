@@ -10,7 +10,7 @@ public class Produit {
 	private String libelle;
 	private double prix;
 	private String imageUrl;
-	// private FamilleRepas familleRepas;
+	private FamilleRepas idFamilleRepas;
 	private String disponibilite;
 	private int stock;
 	private String composition;
@@ -18,6 +18,14 @@ public class Produit {
 
 	public Produit() {
 		super();
+	}
+
+	public FamilleRepas getIdFamilleRepas() {
+		return idFamilleRepas;
+	}
+
+	public void setIdFamilleRepas(FamilleRepas idFamilleRepas) {
+		this.idFamilleRepas = idFamilleRepas;
 	}
 
 	public int getId() {

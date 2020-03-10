@@ -10,4 +10,32 @@ public class FamilleRepas {
 	private String libelle;
 	private boolean actif;
 
+	public FamilleRepas() {
+		super();
+	}
+
+	public int getIdFamilleRepas() {
+		return idFamilleRepas;
+	}
+
+	public void setIdFamilleRepas(int idFamilleRepas) {
+		this.idFamilleRepas = idFamilleRepas;
+	}
+
+	public String getLibelle() {
+		return libelle;
+	}
+
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
+
+	public boolean isActif() {
+		return actif;
+	}
+
+	public void setActif(boolean actif) {
+		this.actif = actif;
+	}
+
 }
