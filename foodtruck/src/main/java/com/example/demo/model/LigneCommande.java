@@ -2,12 +2,18 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import java.util.Collection;
+
+import javax.persistence.*;
 @Entity
 public class LigneCommande {
 	
 	@Id
 	private int IdLigneCommande;
-	private int IdProduct;
+	
+	@OneToMany(mappedBy="lignecommande")
+	private Collection<Produit> IdProduct;
+	
 	private int EnteteCommande;
 	private int Quantite;
 	private int PrixUnitaire;
@@ -19,15 +25,17 @@ public class LigneCommande {
 	public int getIdLigneCommande() {
 		return IdLigneCommande;
 	}
+	
+	public Collection<Produit> getIdProduct() {
+		return IdProduct;
+	}
+	public void setIdProduct(Collection<Produit> idProduct) {
+		IdProduct = idProduct;
+	}
 	public void setIdLigneCommande(int idLigneCommande) {
 		IdLigneCommande = idLigneCommande;
 	}
-	public int getIdProduct() {
-		return IdProduct;
-	}
-	public void setIdProduct(int idProduct) {
-		IdProduct = idProduct;
-	}
+
 	public int getEnteteCommande() {
 		return EnteteCommande;
 	}
@@ -44,14 +52,6 @@ public class LigneCommande {
 		return PrixUnitaire;
 	}
 	public void setPrixUnitaire(int prixUnitaire) {
-		PrixUnitaire = prixUnitaire;
-	}
-	public LigneCommande(int idLigneCommande, int idProduct, int enteteCommande, int quantite, int prixUnitaire) {
-		super();
-		IdLigneCommande = idLigneCommande;
-		IdProduct = idProduct;
-		EnteteCommande = enteteCommande;
-		Quantite = quantite;
 		PrixUnitaire = prixUnitaire;
 	}
 	public LigneCommande() {

@@ -19,6 +19,9 @@ public class Produit {
 	@ManyToOne
 	@JoinColumn(name="Id_FamilleRepas")
 	private FamilleRepas idFamilleRepas;
+	@ManyToOne
+	@JoinColumn(name="Id_ligneCommande")
+	private LigneCommande lignecommande;
 	
 	private String disponibilite;
 	private int stock;
