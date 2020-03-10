@@ -12,6 +12,7 @@ public class Profil {
 	@Id
 	private int id;
 	private String libelle;
+
 	@OneToMany(mappedBy = "idProfil")
 	private Collection<Utilisateur> listeUtilisateur;
 

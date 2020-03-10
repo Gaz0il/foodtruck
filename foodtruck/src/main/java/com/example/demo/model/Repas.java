@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Repas {
@@ -9,7 +11,9 @@ public class Repas {
 	private int idRepas;
 	private String libelle;
 	private boolean isActive;
-
+	@ManyToOne
+	@JoinColumn(name = "id_EnteteCommande")
+	private EnteteCommande idEnteteCommande;
 	public Repas() {
 		super();
 	}
