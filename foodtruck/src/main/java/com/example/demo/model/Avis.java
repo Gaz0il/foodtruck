@@ -2,11 +2,15 @@ package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Avis {
 	@Id
 	private int idAvis;
+	@ManyToOne
+	@JoinColumn(name="Id_Produit")
 	private Produit idProduit;
 	private double prixUser;
 	private String commentaire;

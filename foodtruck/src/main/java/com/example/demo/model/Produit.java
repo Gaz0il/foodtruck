@@ -1,7 +1,12 @@
 package com.example.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produit {
@@ -10,11 +15,28 @@ public class Produit {
 	private String libelle;
 	private double prix;
 	private String imageUrl;
+	
+	@ManyToOne
+	@JoinColumn(name="Id_FamilleRepas")
 	private FamilleRepas idFamilleRepas;
+	
 	private String disponibilite;
 	private int stock;
 	private String composition;
 	private int nombreVendu;
+	
+	@OneToMany(mappedBy="idProduit")
+	private Collection<Avis> avis;
+	
+	
+
+	public Collection<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(Collection<Avis> avis) {
+		this.avis = avis;
+	}
 
 	public Produit() {
 		super();
