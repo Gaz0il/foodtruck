@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produit {
@@ -10,7 +12,11 @@ public class Produit {
 	private String libelle;
 	private double prix;
 	private String imageUrl;
+	
+	@ManyToOne
+	@JoinColumn(name="Id_FamilleRepas")
 	private FamilleRepas idFamilleRepas;
+	
 	private String disponibilite;
 	private int stock;
 	private String composition;
