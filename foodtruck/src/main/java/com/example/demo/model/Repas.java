@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import java.util.Collection;
 import com.example.demo.model.FamilleRepas;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,8 +12,14 @@ public class Repas {
 
 	@Id
 	private int idRepas;
+<<<<<<< HEAD
 
 	@ManyToMany(mappedBy = "repas")
+=======
+	
+	@ManyToMany(mappedBy="repas")
+	@JsonProperty(access = Access.WRITE_ONLY)
+>>>>>>> 76169301f8566ca1872b7b0000a14ad3a483f6c1
 	private Collection<FamilleRepas> familleRepas;
 
 	private String libelle;

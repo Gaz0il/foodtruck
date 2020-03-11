@@ -8,6 +8,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Produit {
 	@Id
@@ -17,9 +20,11 @@ public class Produit {
 	private String imageUrl;
 
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@JoinColumn(name = "Id_FamilleRepas")
 	private FamilleRepas idFamilleRepas;
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@JoinColumn(name = "Id_ligneCommande")
 	private LigneCommande lignecommande;
 
