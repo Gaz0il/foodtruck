@@ -17,8 +17,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class FoodtruckApplication {
 	
-	private GenreRepo genreRepo;
-	private RepasRepo repasRepo;
+//	private GenreRepo genreRepo;
+//	private RepasRepo repasRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(FoodtruckApplication.class, args);
@@ -36,20 +36,20 @@ public class FoodtruckApplication {
 	    };
 	}
 	
-	public void run() {
-		/*
-		 * Initialisation des données à la base
-		 */
-		
-		// Genre 
-		Genre g1 = new Genre(1, "Mr.");
-		Genre g2 = new Genre(2, "Mme.");
-		Genre g3 = new Genre(3, "Autre");
-		genreRepo.save(g1);
-		genreRepo.save(g2);
-		genreRepo.save(g3);
-		
-		// Repas
-	}
+//	public void run() {
+//		/*
+//		 * Initialisation des données à la base
+//		 */
+//		
+//		// Genre 
+//		Genre g1 = new Genre(1, "Mr.");
+//		Genre g2 = new Genre(2, "Mme.");
+//		Genre g3 = new Genre(3, "Autre");
+//		genreRepo.save(g1);
+//		genreRepo.save(g2);
+//		genreRepo.save(g3);
+//		
+//		// Repas
+//	}
 
 }

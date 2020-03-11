@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import java.util.Collection;
 import com.example.demo.model.FamilleRepas;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import javax.persistence.*;
 
 
@@ -13,6 +16,7 @@ public class Repas {
 	private int idRepas;
 	
 	@ManyToMany(mappedBy="repas")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<FamilleRepas> familleRepas;
 	
 	private String libelle;

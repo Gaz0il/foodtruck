@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Profil {
 
@@ -14,6 +17,7 @@ public class Profil {
 	private String libelle;
 
 	@OneToMany(mappedBy = "idProfil")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Utilisateur> listeUtilisateur;
 
 	public Profil() {

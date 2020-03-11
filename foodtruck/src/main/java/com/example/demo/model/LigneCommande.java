@@ -3,6 +3,9 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import java.util.Collection;
 
 import javax.persistence.*;
@@ -21,11 +24,7 @@ public class LigneCommande {
 	private int Quantite;
 	private int PrixUnitaire;
 
-	@Override
-	public String toString() {
-		return "LigneCommande [IdLigneCommande=" + IdLigneCommande + ", IdProduct=" + IdProduct + ", EnteteCommande="
-				+ EnteteCommande + ", Quantite=" + Quantite + ", PrixUnitaire=" + PrixUnitaire + "]";
-	}
+
 
 	public int getIdLigneCommande() {
 		return IdLigneCommande;

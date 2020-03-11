@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Utilisateur {
 	@Id
@@ -27,6 +30,7 @@ public class Utilisateur {
 	@JoinColumn(name = "id_Profil")
 	private Profil idProfil;
 	@OneToMany(mappedBy = "idUtilisateur")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<EnteteCommande> listeEnteteCommande;
 	@OneToMany(mappedBy = "utilisateur")
 	private Collection<Avis> avis;

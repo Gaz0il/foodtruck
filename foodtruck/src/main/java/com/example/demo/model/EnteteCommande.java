@@ -9,12 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class EnteteCommande {
 	@Id
 	private int idCommande;
 	@ManyToOne
 	@JoinColumn(name = "id_Utilisateur")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Utilisateur idUtilisateur;
 	private Date dateCommande;
 	private int totalCommande;
@@ -29,6 +33,7 @@ public class EnteteCommande {
 	@OneToMany(mappedBy = "idEnteteCommande")
 	private Collection<Repas> listeRepas;
 	@OneToMany(mappedBy = "EnteteCommande")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<LigneCommande> listeCommande;
 
 	public EnteteCommande() {

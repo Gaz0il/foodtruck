@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Adresse {
 	@Id
@@ -15,10 +18,14 @@ public class Adresse {
 	private int codePostal;
 	private String pays;
 	@OneToMany(mappedBy = "idAdresse")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Utilisateur> listeUtilisateur;
 	private boolean isActive;
 	@OneToMany(mappedBy = "idAdresseLivraison")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<EnteteCommande> listeTeteCommandeLivraison;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@OneToMany(mappedBy = "idAdresseFacturation")
 	private Collection<EnteteCommande> listeTeteCommandeFacturation;
 	private String ville;
