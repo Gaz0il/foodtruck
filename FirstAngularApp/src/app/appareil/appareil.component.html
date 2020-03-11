@@ -1,0 +1,24 @@
+<div
+  style="width: 20px;height: 20px;background-color: red;"
+  *ngIf="1 === 1"
+></div>
+<h4>Appareil:{{ appareil }}</h4>
+<input type="text" class="form-control" [(ngModel)]="appareil" />
+
+<li class="list-group-item">
+  <p>{{ userName }}</p>
+  <label>Prenom</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="userName"
+    (keyup)="NotifyUserName()"
+  />
+  <label>Nom</label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="lastName"
+    (keyup)="NotifyLastName()"
+  />
+</li>

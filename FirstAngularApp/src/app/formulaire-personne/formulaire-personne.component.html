@@ -1,0 +1,28 @@
+<li class="list-group-item">
+    <h4>
+        Email:
+
+    </h4>
+    <input type="email" class="form-control" [(ngModel)]="email">
+    <h4>
+        Nom:
+
+    </h4>
+    <input type="text" class="form-control" [(ngModel)]="nom">
+    <h4>
+
+        Prenom:
+      
+    </h4>
+    <input type="text" class="form-control" [(ngModel)]="prenom">
+    <h4>
+
+        Date de naissance:
+    </h4>
+    <input type="date" class="form-control" [(ngModel)]="DOB"><br>
+    <button class="btn btn-success"  (click)="enregistrer()">
+        Enregistrer le profil
+    </button> 
+</li>
+
+
