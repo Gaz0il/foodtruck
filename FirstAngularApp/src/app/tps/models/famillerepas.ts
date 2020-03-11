@@ -14,10 +14,10 @@ interface Produit {
   stock: number;
   composition: string;
   nombreVendu: number;
-  avis: Avi[];
+  avis: Avis[];
 }
 
-interface Avi {
+interface Avis {
   idAvis: number;
   prixUser: number;
   commentaire: string;
