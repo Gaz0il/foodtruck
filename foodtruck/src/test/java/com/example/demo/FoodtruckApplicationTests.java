@@ -9,6 +9,5 @@ class FoodtruckApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
-	void 
+ 
 }
