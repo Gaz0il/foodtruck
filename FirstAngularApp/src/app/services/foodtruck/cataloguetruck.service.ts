@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-/*import { produit } from '../tps/foodtruck/produit';
-import { famillerepas } from '../tps/foodtruck/famillerepas';
-import { repas } from '../tps/foodtruck/repas';*/
+import { Produit } from '../../tps/models/produit';
+import { Famillerepas } from '../../tps/models/famillerepas';
+import { Repas } from '../../tps/models/repas';
 
 
 @Injectable({
@@ -19,14 +18,14 @@ export class CataloguetruckService {
 
   }
 
-  getproduit():Observable<produit[]> {
-    return this._http.get<produit[]>(this._produitUrl);
+  getproduit():Observable<Produit[]> {
+    return this._http.get<Produit[]>(this._produitUrl);
   }
-  getfamillerepas():Observable<famillerepas[]> {
-    return this._http.get<famillerepas[]>(this._famillerepasUrl);
+  getfamillerepas():Observable<Famillerepas[]> {
+    return this._http.get<Famillerepas[]>(this._famillerepasUrl);
   }
-  getrepas():Observable<repas[]> {
-    return this._http.get<repas[]>(this._repasUrl);
+  getrepas():Observable<Repas[]> {
+    return this._http.get<Repas[]>(this._repasUrl);
   }
 
   }

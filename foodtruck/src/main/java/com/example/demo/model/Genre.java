@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Genre {
 	@Id
@@ -13,6 +16,7 @@ public class Genre {
 	private String libelle;
 
 	@OneToMany(mappedBy = "idGenre")
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private Collection<Utilisateur> listeUtilisateur;
 
 	public Genre() {
