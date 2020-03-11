@@ -18,6 +18,12 @@ public class Genre {
 	public Genre() {
 		super();
 	}
+	
+	public Genre(int id, String libelle) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+	}
 
 	public Collection<Utilisateur> getListeUtilisateur() {
 		return listeUtilisateur;

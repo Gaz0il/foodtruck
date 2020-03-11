@@ -15,23 +15,21 @@ public class Produit {
 	private String libelle;
 	private double prix;
 	private String imageUrl;
-	
+
 	@ManyToOne
-	@JoinColumn(name="Id_FamilleRepas")
+	@JoinColumn(name = "Id_FamilleRepas")
 	private FamilleRepas idFamilleRepas;
 	@ManyToOne
-	@JoinColumn(name="Id_ligneCommande")
+	@JoinColumn(name = "Id_ligneCommande")
 	private LigneCommande lignecommande;
-	
+
 	private String disponibilite;
 	private int stock;
 	private String composition;
 	private int nombreVendu;
-	
-	@OneToMany(mappedBy="idProduit")
+
+	@OneToMany(mappedBy = "idProduit")
 	private Collection<Avis> avis;
-	
-	
 
 	public Collection<Avis> getAvis() {
 		return avis;

@@ -16,8 +16,8 @@ public class LigneCommande {
 	@OneToMany(mappedBy = "lignecommande")
 	private Collection<Produit> IdProduct;
 	@ManyToOne
-	@JoinColumn(name="id_EnteteCommande")
-	private int EnteteCommande;
+	@JoinColumn(name = "id_EnteteCommande")
+	private EnteteCommande EnteteCommande;
 	private int Quantite;
 	private int PrixUnitaire;
 
@@ -43,11 +43,11 @@ public class LigneCommande {
 		IdLigneCommande = idLigneCommande;
 	}
 
-	public int getEnteteCommande() {
+	public EnteteCommande getEnteteCommande() {
 		return EnteteCommande;
 	}
 
-	public void setEnteteCommande(int enteteCommande) {
+	public void setEnteteCommande(EnteteCommande enteteCommande) {
 		EnteteCommande = enteteCommande;
 	}
 

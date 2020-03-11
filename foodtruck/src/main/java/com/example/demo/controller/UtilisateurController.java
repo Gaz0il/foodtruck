@@ -35,6 +35,7 @@ public class UtilisateurController {
 
 	@PostMapping("create")
 	public void Create(@RequestBody Utilisateur user) {
+		Utilisateur user = new Utilisateur();
 		repo.save(user);
 	}
 

@@ -35,6 +35,14 @@ public class EnteteCommande {
 		super();
 	}
 
+	public Collection<LigneCommande> getListeCommande() {
+		return listeCommande;
+	}
+
+	public void setListeCommande(Collection<LigneCommande> listeCommande) {
+		this.listeCommande = listeCommande;
+	}
+
 	public int getIdCommande() {
 		return idCommande;
 	}

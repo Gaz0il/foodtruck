@@ -34,6 +34,8 @@ public class Utilisateur {
 	public Utilisateur() {
 		super();
 	}
+	
+	
 
 	public Genre getIdGenre() {
 		return idGenre;
