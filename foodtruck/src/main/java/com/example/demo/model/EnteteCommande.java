@@ -28,6 +28,8 @@ public class EnteteCommande {
 	private boolean isDelivrer;
 	@OneToMany(mappedBy = "idEnteteCommande")
 	private Collection<Repas> listeRepas;
+	@OneToMany(mappedBy = "EnteteCommande")
+	private Collection<LigneCommande> listeCommande;
 
 	public EnteteCommande() {
 		super();

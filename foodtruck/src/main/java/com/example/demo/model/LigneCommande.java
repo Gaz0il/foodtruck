@@ -15,7 +15,8 @@ public class LigneCommande {
 
 	@OneToMany(mappedBy = "lignecommande")
 	private Collection<Produit> IdProduct;
-
+	@ManyToOne
+	@JoinColumn(name="id_EnteteCommande")
 	private int EnteteCommande;
 	private int Quantite;
 	private int PrixUnitaire;
