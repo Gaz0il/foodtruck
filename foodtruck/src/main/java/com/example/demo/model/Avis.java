@@ -5,11 +5,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 @Entity
 public class Avis {
 	@Id
 	private int idAvis;
 	@ManyToOne
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@JoinColumn(name="Id_Produit")
 	private Produit idProduit;
 	private double prixUser;
