@@ -21,9 +21,29 @@ public class Adresse {
 	private Collection<EnteteCommande> listeTeteCommandeLivraison;
 	@OneToMany(mappedBy = "idAdresseFacturation")
 	private Collection<EnteteCommande> listeTeteCommandeFacturation;
+	private String ville;
+	
+	
+
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
 
 	public Adresse() {
 		super();
+	}
+
+	public Adresse(int id, int numRue, String rue, int codePostal, String pays) {
+		super();
+		this.id = id;
+		this.numRue = numRue;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.pays = pays;
 	}
 
 	public Collection<Utilisateur> getListeUtilisateur() {

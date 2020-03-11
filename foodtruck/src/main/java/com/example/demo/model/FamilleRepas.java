@@ -7,24 +7,27 @@ import com.example.demo.model.Repas;
 
 @Entity
 public class FamilleRepas {
-	
+
 	@Id
-	
+
 	private int idFamilleRepas;
-	
-	@OneToMany (mappedBy="idFamilleRepas")
+
+	@OneToMany(mappedBy = "idFamilleRepas")
 	private Collection<Produit> produit;
-	
+
 	@ManyToMany
-	@JoinTable( name="Repas_FamilleRepas",
-	joinColumns=@JoinColumn(name="famille_id"),
-	inverseJoinColumns=@JoinColumn(name="repas_id") )
+	@JoinTable(name = "Repas_FamilleRepas", joinColumns = @JoinColumn(name = "famille_id"), inverseJoinColumns = @JoinColumn(name = "repas_id"))
 	private Collection<Repas> repas;
-	
+
 	private String libelle;
 	private boolean actif;
 
-	
+	public FamilleRepas(int idFamilleRepas, String libelle) {
+		super();
+		this.idFamilleRepas = idFamilleRepas;
+		this.libelle = libelle;
+	}
+
 	public Collection<Produit> getProduit() {
 		return produit;
 	}

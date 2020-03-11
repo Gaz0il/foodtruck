@@ -4,24 +4,45 @@ import java.util.Collection;
 import com.example.demo.model.FamilleRepas;
 import javax.persistence.*;
 
-
-
 @Entity
 public class Repas {
-	
+
 	@Id
 	private int idRepas;
-	
-	@ManyToMany(mappedBy="repas")
+
+	@ManyToMany(mappedBy = "repas")
 	private Collection<FamilleRepas> familleRepas;
-	
+
 	private String libelle;
 	private boolean isActive;
 	@ManyToOne
 	@JoinColumn(name = "id_EnteteCommande")
 	private EnteteCommande idEnteteCommande;
+
 	public Repas() {
 		super();
+	}
+
+	public Repas(int idRepas, String libelle) {
+		super();
+		this.idRepas = idRepas;
+		this.libelle = libelle;
+	}
+
+	public Collection<FamilleRepas> getFamilleRepas() {
+		return familleRepas;
+	}
+
+	public void setFamilleRepas(Collection<FamilleRepas> familleRepas) {
+		this.familleRepas = familleRepas;
+	}
+
+	public EnteteCommande getIdEnteteCommande() {
+		return idEnteteCommande;
+	}
+
+	public void setIdEnteteCommande(EnteteCommande idEnteteCommande) {
+		this.idEnteteCommande = idEnteteCommande;
 	}
 
 	public int getIdRepas() {

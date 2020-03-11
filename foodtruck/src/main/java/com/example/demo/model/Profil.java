@@ -20,6 +20,14 @@ public class Profil {
 		super();
 	}
 
+	public Profil(int id, String libelle) {
+		super();
+		this.id = id;
+		this.libelle = libelle;
+	}
+	
+	
+
 	public Collection<Utilisateur> getListeUtilisateur() {
 		return listeUtilisateur;
 	}

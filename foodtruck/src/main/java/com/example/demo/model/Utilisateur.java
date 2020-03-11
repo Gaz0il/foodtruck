@@ -30,12 +30,54 @@ public class Utilisateur {
 	private Collection<EnteteCommande> listeEnteteCommande;
 	@OneToMany(mappedBy = "utilisateur")
 	private Collection<Avis> avis;
+
 	
+
 	public Utilisateur() {
 		super();
 	}
+
+	public Utilisateur(int id, String nom, String prenom, Date dateNaissance, String motDePasse, Genre idGenre,
+			String email, String societe, Adresse idAdresse, Profil idProfil) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.motDePasse = motDePasse;
+		this.idGenre = idGenre;
+		this.email = email;
+		this.societe = societe;
+		this.idAdresse = idAdresse;
+		this.idProfil = idProfil;
+	}
+
+	public Utilisateur(int id, String nom, String prenom, Date dateNaissance, String motDePasse, Genre idGenre,
+			String email, String societe, Adresse idAdresse, Profil idProfil,
+			Collection<EnteteCommande> listeEnteteCommande, Collection<Avis> avis) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+		this.motDePasse = motDePasse;
+		this.idGenre = idGenre;
+		this.email = email;
+		this.societe = societe;
+		this.idAdresse = idAdresse;
+		this.idProfil = idProfil;
+		this.listeEnteteCommande = listeEnteteCommande;
+		this.avis = avis;
+	}
 	
 	
+	public Collection<Avis> getAvis() {
+		return avis;
+	}
+
+	public void setAvis(Collection<Avis> avis) {
+		this.avis = avis;
+	}
 
 	public Genre getIdGenre() {
 		return idGenre;
